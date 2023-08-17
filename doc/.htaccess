@@ -1,0 +1,12 @@
+# Ativaçao de RewriteEngine que nos permite gerencias as rotas
+RewriteEngine On
+
+# Definicao da rota principal
+RewriteBase /
+
+# Se o diretório ou arquivos digitados na URL não existirem, seguir a RewriteRule
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-REQUEST_FILENAME
+
+#Rewrite Rule, redirecionar todas as requests para o index.php
+RewriteRule ^(.+) index.php [QSA, L]
